@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
-    <h1>jQuery Salary Calculator</h1>
+<body class="container">
+    <h1 class="jumbotron">jQuery Salary Calculator</h1>
     <main>
         <div>
             <input id="firstNameIn" type="text" placeholder="First Name">
@@ -21,7 +21,8 @@
             <input id="annualSalaryIn" type="text" placeholder="Annual Salary">
             <button id="submitBtn">Submit</button>
         </div>
-        <table>
+        <br>
+        <table class="table">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -29,11 +30,13 @@
                     <th>ID Number</th>
                     <th>Title</th>
                     <th>Annual Salary</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody id="employeeList">
             </tbody>
         </table>
     </main>
+    <div id="totalMonthly"></div>
 </body>
 </html>
