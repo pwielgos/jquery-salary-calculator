@@ -1,21 +1,13 @@
-console.log('js');
-
 $(document).ready(onReady);
 
 let employees = [];
 
 function onReady() {
-    console.log('in onReady');
     $('#submitBtn').on('click', addEmployee);
     $('#employeeList').on('click', '.deleteBtn', deleteEmployee); 
-    
-    displayEmployees(employees);
-    calculateMonthlyCosts();
 }
 
-function addEmployee(event) {
-    event.preventDefault();
-    console.log('submit button clicked');
+function addEmployee() {
     // get user inputs
     let firstName = $('#firstNameIn').val();
     let lastName = $('#lastNameIn').val();
@@ -39,21 +31,22 @@ function addEmployee(event) {
 }
 
 function calculateMonthlyCosts() {
-  
     // calculate monthly cost = employee.annualSalary value / 12
     let monthlyCost = 0;
     for (let i = 0; i < employees.length; i++) {
         monthlyCost += Number(employees[i].annualSalary / 12);
         }
 
-    // append monthly cost to DOM
-    let el = $('#totalMonthly');
+    // round monthly cost to 2 decimal points
+    let roundedMonthlyCost = monthlyCost.toFixed(2);
+
+    // append rounded monthly cost to DOM
+    let el = $('#monthlyCost');
     el.empty();
-    el.append(`Total Monthly: ${monthlyCost}`);
+    el.append(roundedMonthlyCost);
 }
 
 function deleteEmployee() {
-    console.log('in deleteEmployee');
     $(this).closest('tr').remove();
 }
 
