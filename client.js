@@ -6,6 +6,7 @@ function onReady() {
     $('#submitBtn').on('click', addEmployee);
     $('#employeeList').on('click', '.deleteBtn', deleteEmployee); 
     $('#submitBtn').on('click', exceedBudget);
+    $('#employeeList').on('click', '.deleteBtn', removeEmployeeSalary );
 }
 
 function addEmployee() {
@@ -68,6 +69,12 @@ function exceedBudget(){
     if(monthlyCost >= 20000){
         $('h3').css('background-color', 'red')
     }
+}
+
+function removeEmployeeSalary(newEmployee) {
+    console.log('in removeEmployeeSalary');
+    employees.pop(newEmployee);
+    calculateMonthlyCosts();
 }
 
 
