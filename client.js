@@ -5,6 +5,7 @@ let employees = [];
 function onReady() {
     $('#submitBtn').on('click', addEmployee);
     $('#employeeList').on('click', '.deleteBtn', deleteEmployee); 
+    $('#submitBtn').on('click', exceedBudget);
 }
 
 function addEmployee() {
@@ -15,24 +16,22 @@ function addEmployee() {
     let title = $('#titleIn').val();
     let annualSalary = $('#annualSalaryIn').val();
 
+    // push user inputs into an array so we can calculate monthly cost
+    let newEmployee = { firstName, lastName, idNumber, title, annualSalary };
+    employees.push(newEmployee);
+    displayEmployees(employees);
     // empty inputs
     $('#firstNameIn').val('');
     $('#lastNameIn').val('');
     $('#idNumberIn').val('');
     $('#titleIn').val('');
     $('#annualSalaryIn').val('');
-
-    // push user inputs into an array so we can calculate monthly cost
-    let newEmployee = { firstName, lastName, idNumber, title, annualSalary };
-    employees.push(newEmployee);
-    
-    displayEmployees(employees);
     calculateMonthlyCosts();
 }
 
 function calculateMonthlyCosts() {
     // calculate monthly cost = employee.annualSalary value / 12
-    let monthlyCost = 0;
+    monthlyCost = 0;
     for (let i = 0; i < employees.length; i++) {
         monthlyCost += Number(employees[i].annualSalary / 12);
         }
@@ -62,6 +61,12 @@ function displayEmployees(employeeArray) {
         <td>${employee.annualSalary}</td>
         <td><button class="deleteBtn">DELETE</button></td>
         </tr>`);
+    }
+}
+
+function exceedBudget(){
+    if(monthlyCost >= 20000){
+        $('h3').css('background-color', 'red')
     }
 }
 
