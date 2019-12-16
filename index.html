@@ -11,17 +11,19 @@
     <title>Document</title>
 </head>
 <body class="container">
-    <h1 class="jumbotron">jQuery Salary Calculator</h1>
+    <h1 class="jumbotron">Salary Calculator</h1>
     <main>
+        <h2>Add Employee</h2>
         <div>
             <input id="firstNameIn" type="text" placeholder="First Name">
             <input id="lastNameIn" type="text" placeholder="Last Name">
             <input id="idNumberIn" type="number" placeholder="ID Number">
             <input id="titleIn" type="text" placeholder="Title">
-            <input id="annualSalaryIn" type="text" placeholder="Annual Salary">
-            <button id="submitBtn">Submit</button>
+            <input id="annualSalaryIn" type="number" placeholder="Annual Salary">
+            <button class="btn btn-secondary" id="submitBtn">SUBMIT</button>
         </div>
         <br>
+        <h2>Employees</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -36,7 +38,8 @@
             <tbody id="employeeList">
             </tbody>
         </table>
-        <h3>Total Monthly: $<span id="monthlyCost"></span></h3>
+        <br>
+        <h3>Total Monthly: $<span id="monthlyCost">0.00</span></h3>
     </main>
 </body>
 </html>

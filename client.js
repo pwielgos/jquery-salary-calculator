@@ -59,7 +59,7 @@ function displayEmployees(employeeArray) {
         <td>${employee.idNumber}</td>
         <td>${employee.title}</td>
         <td>${employee.annualSalary}</td>
-        <td><button class="deleteBtn">DELETE</button></td>
+        <td><button class="deleteBtn btn btn-secondary">DELETE</button></td>
         </tr>`);
     }
 }
